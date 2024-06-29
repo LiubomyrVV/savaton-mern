@@ -1,0 +1,66 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  --main-color: rgba(255, 104, 69, 1);
+  --main-border: rgba(205, 203, 166, 0.32);
+  --main-border-darker: rgba(205, 203, 166, 0.42);
+  --black: #000;
+}
+#global-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+#header {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  height: calc(190px + 80px);
+}
+a:hover {
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none;
+}
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
