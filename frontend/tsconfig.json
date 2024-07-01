@@ -20,7 +20,8 @@
   "include": [
     "src",
     "src/widgets/header/actions/ui/ui.tsxerDropdown.tsx",
-    "src/widgets/header/actions/ui/Dropdown.tsx"
+    "src/widgets/header/actions/ui/Dropdown.tsx",
+    "src/contexts/NotificationContext/.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
