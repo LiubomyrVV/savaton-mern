@@ -1,13 +1,17 @@
-export type Product = {
+import { Image } from './Image'
+
+export interface Product {
   _id: string
   name: string
   slug: string
-  image: string
-  category: string
+  images: Image[]
   brand: string
+  category: string
+  type: string
   description: string
   price: number
-  countInStock: number
+  discount: number
+  quantity: number
   rating: number
   numReviews: number
 }

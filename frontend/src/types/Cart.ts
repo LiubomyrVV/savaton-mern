@@ -1,11 +1,19 @@
+import { Image } from './Image'
+
 export type CartItem = {
-  image: string | undefined
-  slug: string
   _id: string
   name: string
-  quantity: number
-  countInStock: number
+  slug: string
+  images: Image[]
+  brand: string
+  category: string
+  type: string
+  description: string
   price: number
+  discount: number
+  quantity: number
+  rating: number
+  numReviews: number
 }
 
 export type ShippingAddress = {

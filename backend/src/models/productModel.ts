@@ -46,7 +46,7 @@ export class Product {
   public discount!: number
 
   @prop({ required: true, default: 0 })
-  public countInStock!: number
+  public quantity!: number
 
   @prop({ required: true, default: 0 })
   public rating!: number
