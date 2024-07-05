@@ -4,6 +4,8 @@ import { HomePageSection } from './index.styled'
 
 import 'react-toastify/dist/ReactToastify.css'
 import { InfinityCarousel } from '../../components/InfinityCarousel/InfinityCarousel'
+import ProductContainer from '../../components/ProductContainer/ProductContainer'
+
 // import useNotification from '../../hooks/useNotification'
 // import ProductItem from '../../components/ProductItem/ProductItem'
 
@@ -47,7 +49,6 @@ const HomePage = () => {
 
   if (isPending) return <div>Loading..</div>
   if (isError) return <div>Error..</div>
-  console.log(data[0])
   return (
     <>
       <Helmet>
@@ -60,6 +61,7 @@ const HomePage = () => {
         return <li>{el.price}</li>
       })} */}
         <InfinityCarousel items={CAROUSEL_DATA} />
+        <ProductContainer products={data} isPending={isPending} />
       </HomePageSection>
     </>
   )
