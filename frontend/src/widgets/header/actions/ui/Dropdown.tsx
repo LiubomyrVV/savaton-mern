@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { defaultSettings } from '../utils'
 
 export const Dropdown = (
-  type: 'valutes' | 'languages',
+  type: string,
   list: string[],
   isActive: boolean,
   ref: React.RefObject<HTMLDivElement>,

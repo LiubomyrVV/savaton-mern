@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, RefObject } from 'react'
 
 export interface Valutes {
   current: string
@@ -18,6 +18,10 @@ export interface Selections {
 export interface States {
   isValutesActive: boolean
   isLanguagesActive: boolean
+}
+export interface RefsType {
+  valutesRef: RefObject<HTMLDivElement>
+  languagesRef: RefObject<HTMLDivElement>
 }
 
 export interface OpenMenuProps {

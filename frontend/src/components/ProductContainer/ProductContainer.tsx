@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ProductContainerWrapper } from './index.styled'
 import { ROUTES } from '../../router'
-import { CustomSwiper as Swiper } from '../ui/CustomSwiper'
+import { CustomSwiper as Swiper } from '../UI/CustomSwiper/CustomSwiper'
 import { Product } from '../../types/Product'
+import ProductItem from '../ProductItem/ProductItem'
 
 interface ProductContainerProp {
   products: Product[]
@@ -20,17 +21,9 @@ const ProductContainer: React.FC<ProductContainerProp> = ({
         <h3>Featured Products</h3>
         <Link to={ROUTES.CART}>View All {`==>`}</Link>
       </div>
-      <Swiper>
-        {products.map(({ _id, name, images }) => {
-          const { main_image, color_slug } = images[0]
-          return (
-            <div key={_id}>
-              <figure>
-                <img src={main_image} alt={color_slug} />
-              </figure>
-              {name}
-            </div>
-          )
+      <Swiper className="product-container">
+        {products.map((product) => {
+          return <ProductItem product={product} />
         })}
       </Swiper>
     </ProductContainerWrapper>

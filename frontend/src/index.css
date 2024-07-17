@@ -48,7 +48,9 @@ h6 {
 a {
   font-weight: 500;
   text-decoration: none;
+  color: var(--black);
 }
+
 img {
   height: 100%;
   width: 100%;

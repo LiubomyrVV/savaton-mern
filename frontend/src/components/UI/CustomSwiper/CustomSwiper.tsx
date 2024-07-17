@@ -10,11 +10,15 @@ import { Children, ReactNode } from 'react'
 
 interface CustomSwiperType {
   children: ReactNode[]
+  className?: string
 }
 
-export function CustomSwiper({ children }: CustomSwiperType) {
+export const CustomSwiper: React.FC<CustomSwiperType> = ({
+  children,
+  className,
+}: CustomSwiperType) => {
   return (
-    <CustomSwiperContainer>
+    <CustomSwiperContainer className={className}>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const ProductContainerWrapper = styled.div`
   margin: 40px 0;
+
   .head {
     display: flex;
     justify-content: space-between;
@@ -13,5 +14,8 @@ export const ProductContainerWrapper = styled.div`
       display: flex;
       align-items: end;
     }
+  }
+  .product-container {
+    height: 480px;
   }
 `
