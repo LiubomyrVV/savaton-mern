@@ -14,6 +14,7 @@ export const InfinityCarouselContainer = styled.section`
   overflow: hidden;
   white-space: nowrap;
   position: relative;
+  
   .blur {
   
     position: absolute;

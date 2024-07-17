@@ -1,4 +1,4 @@
-import { ChangeSelectionProps, OpenMenuProps, Selections } from './types'
+import { ChangeSelectionProps, OpenMenuProps } from './types'
 import { defaultStates } from './constants'
 
 export const changeSelection = ({
@@ -6,50 +6,45 @@ export const changeSelection = ({
   selections,
   setSelections,
 }: ChangeSelectionProps) => {
-  const target = event.target as HTMLElement
-  const parent = target.parentElement?.parentElement as HTMLElement
-  if (!parent) return
-
-  const type: keyof Selections =
-    parent.className === 'valutes' ? 'valutes' : 'languages'
-
   const currentValue = event.currentTarget.textContent || ''
-  const { list, current } = selections[type]
+  const type =
+    event.currentTarget.parentElement?.parentElement?.className === 'valutes'
+      ? 'valutes'
+      : 'languages'
 
-  if (currentValue === current) return
+  if (currentValue === selections[type].current) return
 
-  const modifiedList = list
-  let modifiedCurrent = current
-
-  // prettier-ignore
-  modifiedList[list.findIndex((el) => el === currentValue)] = current
-  modifiedCurrent = currentValue
+  const modifiedList = selections[type].list.map((el) =>
+    el === currentValue ? selections[type].current : el
+  )
 
   setSelections({
     ...selections,
     [type]: {
-      current: modifiedCurrent,
+      current: currentValue,
       list: modifiedList,
     },
   })
 }
 
-export const openMenu = ({
-  event,
-  isActive,
-  setIsActive,
-}: OpenMenuProps): void => {
+export const openMenu = ({ event, isActive, setIsActive }: OpenMenuProps) => {
   const target = event.target as HTMLElement
-  const parent = target.parentElement as HTMLElement
+  const type =
+    target.parentElement?.className === 'valutes'
+      ? 'isValutesActive'
+      : 'isLanguagesActive'
 
-  if (!parent) return
-  // prettier-ignore
-  const type = parent.className === 'valutes' ? 'isValutesActive' :  'isLanguagesActive'
+  setIsActive({
+    ...defaultStates,
+    [type]: !isActive[type],
+  })
+}
 
-  if (isActive[type]) setIsActive({ ...defaultStates })
-  else
-    setIsActive({
-      ...defaultStates,
-      [type]: true,
-    })
+export const generateDynamicKey = (name: string) => {
+  return `is${
+    `${name[0].toUpperCase()}` +
+    Array.from(name.slice(1))
+      .map((el) => el)
+      .join('')
+  }Active`
 }

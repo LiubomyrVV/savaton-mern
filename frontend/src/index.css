@@ -20,7 +20,7 @@
 }
 #global-container {
   max-width: 1920px;
-  margin: 0 auto;
+  margin: 0 5%;
   padding: 0 20px;
 }
 #header {
@@ -37,20 +37,32 @@ a:hover {
 input:focus {
   outline: none;
 }
-/* a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
+  color: var(--black);
 }
 
-body {
+img {
+  height: 100%;
+  width: 100%;
+}
+/* body {
   margin: 0;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
+} */
 
 /* @media (prefers-color-scheme: light) {
   :root {

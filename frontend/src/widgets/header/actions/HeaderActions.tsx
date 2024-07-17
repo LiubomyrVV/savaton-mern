@@ -1,20 +1,32 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react'
-
+import React, {
+  MouseEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { HeaderActionsContainer } from './index.styled'
 import {
   changeSelection,
   defaultSelections,
   defaultStates,
+  generateDynamicKey,
   openMenu,
+  RefsType,
   Selections,
+  States,
 } from './utils'
 import { Dropdown } from './ui/Dropdown'
 
+const dropdownList = ['valutes', 'languages']
+
 const HeaderActions = () => {
-  const [isActive, setIsActive] = useState(defaultStates)
+  const [isActive, setIsActive] = useState<States>(defaultStates)
   const [selections, setSelections] = useState<Selections>(defaultSelections)
-  const valutesRef = useRef<HTMLDivElement | null>(null)
-  const languagesRef = useRef<HTMLDivElement | null>(null)
+  const refs = {
+    valutesRef: useRef<HTMLDivElement>(null),
+    languagesRef: useRef<HTMLDivElement>(null),
+  }
 
   const openMenuHandler = useCallback(
     (event: MouseEvent<HTMLDivElement>) => {
@@ -31,6 +43,7 @@ const HeaderActions = () => {
   )
 
   const handleClickOutside = useCallback((event: Event) => {
+    const { valutesRef, languagesRef } = refs
     const target = event.target as HTMLElement
     if (!target.closest('.dropdown, .languages, .valutes')) {
       if (valutesRef.current && !valutesRef.current.contains(target)) {
@@ -51,23 +64,16 @@ const HeaderActions = () => {
 
   return (
     <HeaderActionsContainer>
-      {Dropdown(
-        'valutes',
-        selections.valutes.list,
-        isActive.isValutesActive,
-        valutesRef,
-        selections.valutes.current,
-        openMenuHandler,
-        changeSelectionHandler
-      )}
-      {Dropdown(
-        'languages',
-        selections.languages.list,
-        isActive.isLanguagesActive,
-        languagesRef,
-        selections.languages.current,
-        openMenuHandler,
-        changeSelectionHandler
+      {dropdownList.map((name: string) =>
+        Dropdown(
+          name,
+          selections[name as keyof Selections].list,
+          isActive[generateDynamicKey(name) as keyof States],
+          refs[`${name}Ref` as keyof RefsType],
+          selections[name as keyof Selections].current,
+          openMenuHandler,
+          changeSelectionHandler
+        )
       )}
     </HeaderActionsContainer>
   )
