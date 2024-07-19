@@ -3,6 +3,7 @@ import { HeaderContainer } from './index.styled'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import HeaderActions from './actions/HeaderActions'
 import { useWindowResize } from '../../hooks/useWindowResize'
+import { ROUTES } from '../../router'
 
 const Header = () => {
   const { width } = useWindowResize()
@@ -46,7 +47,7 @@ const Header = () => {
         </Link>
         <div className="actions">
           <SearchInput />
-          <div className="cart">
+          <Link to={ROUTES.CART} className="cart">
             <figure>
               <i className="bi bi-bag"></i>
             </figure>
@@ -54,8 +55,8 @@ const Header = () => {
               <span>Cart</span>
               <span className="summary">150.00$</span>
             </div>
-          </div>
-          <div className="user">
+          </Link>
+          <Link to={ROUTES.PROFILE} className="user">
             <figure>
               <i className="bi bi-person"></i>
             </figure>
@@ -63,7 +64,7 @@ const Header = () => {
               <span>User</span>
               <span>Account</span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
       <div

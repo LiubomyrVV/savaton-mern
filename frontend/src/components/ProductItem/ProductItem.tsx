@@ -5,13 +5,15 @@ import { CartItem } from '../../types/Cart'
 import { Product } from '../../types/Product'
 import { Link } from 'react-router-dom'
 import { StarRating } from '../UI'
+import { ROUTES } from '../../router'
 
 // import { convertProductToCartItem } from '../../utils'
 
 interface ProductProps {
   product: Product
+  id: number
 }
-const ProductItem: React.FC<ProductProps> = ({ product }) => {
+const ProductItem: React.FC<ProductProps> = ({ product, id }) => {
   const { _id, name, type, rating, price, images, numReviews } = product
   const { main_image, color_slug } = images[0]
   const { state, dispatch } = useContext(Store)
@@ -46,7 +48,7 @@ const ProductItem: React.FC<ProductProps> = ({ product }) => {
         <div className="content">
           <div className="type">{type}</div>
           <div className="name">
-            <Link to="/">{name}</Link>
+            <Link to={`product/:${id}`}>{name}</Link>
           </div>
           <div className="rating">
             <div className="stars">
@@ -57,7 +59,7 @@ const ProductItem: React.FC<ProductProps> = ({ product }) => {
           <div className="price">
             {price.toLocaleString('en-US', {
               style: 'currency',
-              currency: 'USD',
+              currency: 'PLN',
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}

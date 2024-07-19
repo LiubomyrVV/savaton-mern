@@ -38,15 +38,15 @@ export const ProductItemContainer = styled.div`
         transition: color 200ms ease, text-decoration 200ms ease; /* Transition for color and text-decoration */
 
         /* Hover effect for link */
-        &:hover {
-          text-decoration: underline;
-          color: var(--main-color);
+      }
+      &:hover a {
+        text-decoration: underline;
+        color: var(--main-color);
 
-          text-decoration: underline;
-          text-decoration-thickness: 2px;
-          text-decoration-color: var(--main-color);
-          transition: 200ms ease;
-        }
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: var(--main-color);
+        transition: 200ms ease;
       }
       &:hover ~ .price {
         color: var(--main-color);
