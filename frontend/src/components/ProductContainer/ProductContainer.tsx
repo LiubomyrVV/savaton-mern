@@ -22,8 +22,8 @@ const ProductContainer: React.FC<ProductContainerProp> = ({
         <Link to={ROUTES.CART}>View All {`==>`}</Link>
       </div>
       <Swiper className="product-container">
-        {products.map((product) => {
-          return <ProductItem product={product} />
+        {products.map((product, idx) => {
+          return <ProductItem product={product} id={idx} />
         })}
       </Swiper>
     </ProductContainerWrapper>

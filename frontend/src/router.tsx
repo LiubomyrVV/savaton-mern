@@ -6,9 +6,15 @@ import {
 } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage.tsx'
 import CartPage from './pages/CartPage/CartPage.tsx'
+import ProfilePage from './pages/ProfilePage/ProfilePage.tsx'
+import ProductPage from './pages/ProductPage/ProductPage.tsx'
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const ROUTES = { CART: 'cart' }
+export const ROUTES = {
+  CART: 'cart',
+  PROFILE: 'profile',
+  PRODUCT: 'products/:id',
+}
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +22,8 @@ export const router = createBrowserRouter(
       <Route index={true} element={<HomePage />} />
       {/* <Route path="product/:slug" element={<ProductPage />} /> */}
       <Route path={ROUTES.CART} element={<CartPage />} />
+      <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
+      <Route path={ROUTES.PRODUCT} element={<ProductPage />} />
       {/* <Route path="signin" element={<SigninPage />} />
         <Route path="signup" element={<SignupPage />} />  */}
       {/* <Route path="" element={<ProtectedRoute />}>
