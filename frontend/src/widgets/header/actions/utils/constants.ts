@@ -5,12 +5,20 @@ export const defaultStates = {
 
 export const defaultSelections = {
   valutes: {
-    current: 'USD',
-    list: ['EUR', 'GBP'],
+    current: localStorage.getItem('currentValute')
+    ? JSON.parse(localStorage.getItem('currentValute')!)
+    : 'USD',
+    list: localStorage.getItem('currentValuteList')
+    ? JSON.parse(localStorage.getItem('currentValuteList')!)
+    : ['EUR', 'GBP'],
   },
   languages: {
-    current: 'English',
-    list: ['Polish', 'Ukrainian'],
+    current: localStorage.getItem('currentLanguage')
+    ? JSON.parse(localStorage.getItem('currentLanguage')!)
+    : 'English',
+    list: localStorage.getItem('currentLanguageList')
+    ? JSON.parse(localStorage.getItem('currentLanguageList')!)
+    : ['Polish', 'Ukrainian'],
   },
 }
 

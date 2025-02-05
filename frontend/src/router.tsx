@@ -7,13 +7,15 @@ import {
 import HomePage from './pages/HomePage/HomePage.tsx'
 import CartPage from './pages/CartPage/CartPage.tsx'
 import ProfilePage from './pages/ProfilePage/ProfilePage.tsx'
+import ProductIdPage from './pages/ProductIdPage/ProductIdPage.tsx'
 import ProductPage from './pages/ProductPage/ProductPage.tsx'
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ROUTES = {
   CART: 'cart',
   PROFILE: 'profile',
-  PRODUCT: 'products/:id',
+  PRODUCTS: 'products',
+  PRODUCT: 'products/:slug',
 }
 
 export const router = createBrowserRouter(
@@ -23,7 +25,8 @@ export const router = createBrowserRouter(
       {/* <Route path="product/:slug" element={<ProductPage />} /> */}
       <Route path={ROUTES.CART} element={<CartPage />} />
       <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
-      <Route path={ROUTES.PRODUCT} element={<ProductPage />} />
+      <Route path={ROUTES.PRODUCT} element={<ProductIdPage />} />
+      <Route path={ROUTES.PRODUCTS} element={<ProductPage />} />
       {/* <Route path="signin" element={<SigninPage />} />
         <Route path="signup" element={<SignupPage />} />  */}
       {/* <Route path="" element={<ProtectedRoute />}>

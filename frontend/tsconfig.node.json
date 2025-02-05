@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "composite": true, // Required for project references
+    "module": "ESNext", // Uses the latest module system
+    "moduleResolution": "Node", // Resolves modules using Node.js rules
+    "allowSyntheticDefaultImports": true // Allows default imports for Node.js modules
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"] // Includes Vite configuration file
 }

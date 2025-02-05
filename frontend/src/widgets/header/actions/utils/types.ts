@@ -1,4 +1,5 @@
 import { MouseEvent, RefObject } from 'react'
+import { Action } from '../../../../store/Store'
 
 export interface Valutes {
   current: string
@@ -34,4 +35,5 @@ export interface ChangeSelectionProps {
   event: MouseEvent<HTMLLIElement>
   selections: Selections
   setSelections: React.Dispatch<React.SetStateAction<Selections>>
+  dispatch: React.Dispatch<Action>
 }

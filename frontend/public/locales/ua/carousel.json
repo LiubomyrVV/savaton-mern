@@ -1,0 +1,32 @@
+{
+  "Responsive": {
+    "title": "Респонсивний",
+    "subtitle": "Служба підтримки доступна 24/7",
+    "icon": "bi-headset"
+  },
+  "Secure": {
+    "title": "Безпечний",
+    "subtitle": "Сертифікований маркетплейс з 2017 року",
+    "icon": "bi-shield-check"
+  },
+  "Shipping": {
+    "title": "Доставка",
+    "subtitle": "Безкоштовно, швидко та надійно по всьому світу",
+    "icon": "bi-truck"
+  },
+  "Transparent": {
+    "title": "Прозорий",
+    "subtitle": "Політика повернення без проблем",
+    "icon": "bi-box-seam"
+  },
+  "Special Offers": {
+    "title": "Спеціальні пропозиції",
+    "subtitle": "Ексклюзивні пропозиції та спеціальні акції.",
+    "icon": "bi-gift"
+  },
+  "Customer Satisfaction": {
+    "title": "Задоволення клієнтів",
+    "subtitle": "Забезпечення високого рівня задоволення клієнтів.",
+    "icon": "bi-star"
+  }
+}

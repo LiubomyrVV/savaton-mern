@@ -5,19 +5,23 @@ export const changeSelection = ({
   event,
   selections,
   setSelections,
+  dispatch
 }: ChangeSelectionProps) => {
+  
+
   const currentValue = event.currentTarget.textContent || ''
+  
   const type =
     event.currentTarget.parentElement?.parentElement?.className === 'valutes'
       ? 'valutes'
       : 'languages'
-
+  console.log(type)
   if (currentValue === selections[type].current) return
 
   const modifiedList = selections[type].list.map((el) =>
     el === currentValue ? selections[type].current : el
   )
-
+  console.log(modifiedList)
   setSelections({
     ...selections,
     [type]: {
@@ -25,7 +29,19 @@ export const changeSelection = ({
       list: modifiedList,
     },
   })
+  if (type === 'languages') {
+    dispatch({ type: 'SET_CURRENT_LANGUAGE', payload: currentValue })
+    localStorage.setItem('currentLanguage', JSON.stringify(currentValue))
+    dispatch({ type: 'SET_CURRENT_LANGUAGE_LIST', payload: modifiedList })
+    localStorage.setItem('currentLanguageList', JSON.stringify(modifiedList))
+  } else {
+    dispatch({ type: 'SET_CURRENT_VALUTE', payload: currentValue })
+    localStorage.setItem('currentValute', JSON.stringify(currentValue))
+    dispatch({ type: 'SET_CURRENT_VALUTE_LIST', payload: modifiedList })
+    localStorage.setItem('currentValuteList', JSON.stringify(modifiedList))
+  }
 }
+
 
 export const openMenu = ({ event, isActive, setIsActive }: OpenMenuProps) => {
   const target = event.target as HTMLElement
@@ -48,3 +64,4 @@ export const generateDynamicKey = (name: string) => {
       .join('')
   }Active`
 }
+

@@ -1,0 +1,33 @@
+{
+    "Responsive": {
+      "title": "Responsive",
+      "subtitle": "Customer service available 24/7",
+      "icon": "bi-headset"
+    },
+    "Secure": {
+      "title": "Secure",
+      "subtitle": "Certified marketplace since 2017",
+      "icon": "bi-shield-check"
+    },
+    "Shipping": {
+      "title": "Shipping",
+      "subtitle": "Free, fast, and reliable worldwide",
+      "icon": "bi-truck"
+    },
+    "Transparent": {
+      "title": "Transparent",
+      "subtitle": "Hassle-free return policy",
+      "icon": "bi-box-seam"
+    },
+    "Special Offers": {
+      "title": "Special Offers",
+      "subtitle": "Exclusive deals and special offers.",
+      "icon": "bi-gift"
+    },
+    "Customer Satisfaction": {
+      "title": "Customer Satisfaction",
+      "subtitle": "Ensuring high customer satisfaction.",
+      "icon": "bi-star"
+    }
+  }
+  

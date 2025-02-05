@@ -20,6 +20,14 @@ productRouter.get(
   })
 )
 
+productRouter.get(
+  '/brands',
+  asyncHandler(async (req: Request, res: Response) => {
+    const categories = await ProductModel.find().distinct('brands')
+    res.json(categories)
+  })
+)
+
 // /api/slug/tshirt
 productRouter.get(
   '/slug/:slug',

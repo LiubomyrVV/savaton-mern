@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 import { InfinityCarouselContainer } from './index.styled'
+import { useTranslation } from 'react-i18next'
+
 
 interface InfinityCarouselType {
   getIcon: () => ReactNode
@@ -14,6 +16,7 @@ interface InfinityCarouselProps {
 export const InfinityCarousel: React.FC<InfinityCarouselProps> = ({
   items,
 }) => {
+  const { t } = useTranslation('carousel')
   return (
     <InfinityCarouselContainer
       className="Carousel"
@@ -25,14 +28,14 @@ export const InfinityCarousel: React.FC<InfinityCarouselProps> = ({
       <div className="blur" style={{ left: '-10px' }}></div>
       <div className="blur" style={{ right: '-10px' }}></div>
 
-      <ul>
-        {items.map(({ getIcon, title, subtitle }, idx) => {
+      <ul className='infinity-carousel__list'>
+        {items.map(({ getIcon, title }, idx) => {
           return (
             <li key={idx}>
               <figure>{getIcon()}</figure>
               <div>
-                <h5>{title}</h5>
-                <p>{subtitle}</p>
+                <h5>{t(`${title}.title`)}</h5>
+                <p>{t(`${title}.subtitle`)}</p>
               </div>
             </li>
           )
