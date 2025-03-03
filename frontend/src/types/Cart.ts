@@ -1,4 +1,5 @@
 import { Image } from './Image'
+import { Product } from './Product'
 
 export type CartItem = {
   _id: string
@@ -12,6 +13,7 @@ export type CartItem = {
   price: number
   discount: number
   quantity: number
+  cartQuantity: number
   rating: number
   numReviews: number
 }
@@ -26,6 +28,7 @@ export type ShippingAddress = {
 
 export type Cart = {
   cartItems: CartItem[]
+  favoritesItems: CartItem[]
   shippingAddress: ShippingAddress
   paymentMethod: string
   itemsPrice: number

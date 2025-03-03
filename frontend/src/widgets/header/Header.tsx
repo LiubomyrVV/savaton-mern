@@ -1,14 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { HeaderContainer } from './index.styled'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import HeaderActions from './actions/HeaderActions'
 import { useWindowResize } from '../../hooks/useWindowResize'
 import { ROUTES } from '../../router'
+import RegisterModal from '../Auth/RegisterModal'
+import { useContext, useState } from 'react'
+import { Store } from '../../store'
+
 
 const Header = () => {
   const { width } = useWindowResize()
+  const [isOpen, setIsOpen] = useState(false);
+  const nav = useNavigate()
+  const { state } = useContext(Store)
+  const {
+    userInfo
+  } = state
   return (
     <HeaderContainer id={'header'}>
+       {isOpen ? <RegisterModal onClose={() => setIsOpen(false)}/> : null}
       <div
         className="upper-part__underline"
         style={{ borderBottom: '2px solid var(--main-border)' }}
@@ -56,15 +67,22 @@ const Header = () => {
               <span className="summary">150.00$</span>
             </div>
           </Link>
-          <Link to={ROUTES.PROFILE} className="user">
+          <div style={{cursor: 'pointer'}} onClick={() => {
+
+            if (userInfo) { 
+              nav('/profile')
+            } else {
+              setIsOpen(!isOpen)
+            }
+          }} className="user">
             <figure>
-              <i className="bi bi-person"></i>
+              {userInfo?.name ? <i className="bi bi-star"></i> : <i className="bi bi-person"></i>}
             </figure>
             <div>
               <span>User</span>
               <span>Account</span>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
       <div

@@ -14,13 +14,12 @@ const ProductContainer: React.FC<ProductContainerProp> = ({
   products,
   isPending,
 }) => {
-  console.log(products)
   if (isPending) return <div>isPending</div>
   return (
     <ProductContainerWrapper>
       <div className="head">
         <h3>Featured Products</h3>
-        <Link to={ROUTES.PRODUCTS}>View All {`==>`}</Link>
+        <Link to={ROUTES.PRODUCTS}>View All</Link>
       </div>
       <Swiper className="product-container">
         {products.map((product, idx) => {

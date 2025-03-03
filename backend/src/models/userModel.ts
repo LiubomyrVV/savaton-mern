@@ -5,12 +5,18 @@ export class User {
   public _id?: string
   @prop({ required: true })
   public name!: string
+  
   @prop({ required: true, unique: true })
   public email!: string
   @prop({ required: true })
   public password!: string
   @prop({ required: true, default: false })
   public isAdmin!: boolean
+
+  @prop({ required: false })
+  public verificationToken!: string
+  @prop({ required: true, default: false })
+  public isVerified!: boolean
 }
 
 export const UserModel = getModelForClass(User)

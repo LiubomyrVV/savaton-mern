@@ -4,12 +4,17 @@ import { ProductIdPageSection } from './index.styled';
 import Breadcrumbs from '../../components/UI/Breadcrumbs/Breadcrumbs';
 import { useGetProductDetailsBySlugQuery } from '../../hooks/productHooks';
 import { Product } from '../../types/Product';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TransparentButton } from '../../components/UI/TransparentButton/TransparentButton';
+import { Store } from '../../store';
+import { CustomNotify } from '../../components/common/CustomNotify';
+import { userInfo } from 'os';
 
 const ProductIdPage = () => {
   const { slug } = useParams<{ slug?: string }>();
-
+  const { state, dispatch } = useContext(Store)
+  const { cart } = state
+  const { favoritesItems } = cart
   const { data, isPending, isError, refetch } = useGetProductDetailsBySlugQuery(slug || '');
 
   useEffect(() => {
@@ -32,13 +37,9 @@ const ProductIdPage = () => {
   
   return (
     <ProductIdPageSection>
-     
       <Breadcrumbs />
-      
-
-      {/* Left: Product image gallery */}
       <div className="gallery">
-        <figure onClick={() => console.log("Main image clicked")}>
+        <figure>
           <img src={mainImage} alt={product.slug} />
         </figure>
 
@@ -55,7 +56,6 @@ const ProductIdPage = () => {
         </ul>
       </div>
 
-      {/* Right: Product details */}
       <div className="info">
         <StarRating rating={product.rating} />
         <h2>{product.name}</h2>
@@ -66,9 +66,38 @@ const ProductIdPage = () => {
           <li className="type">Type: {product.type}</li>
           <li className="description">{product.description}</li>
           <li className="variant">
-            <TransparentButton text="Standard" />
-            <TransparentButton text="Active" typeBtn="active" />
-            <TransparentButton text="Disabled" typeBtn="disabled" />
+            {data.quantity <= 0 ? 
+              <TransparentButton text="Продано" typeBtn="disabled" /> 
+            :
+            <>
+              <div onClick={() => {
+                    if (!state.userInfo) {
+                      CustomNotify('Для цієї операції треба бути залогованим', 'warning')
+                      return
+                    }
+                  dispatch({ type: 'CART_ADD_ITEM', payload: data})
+                  CustomNotify('Продукт успішно додано до кошика', 'success', undefined, '/cart')
+                }}>
+                <TransparentButton text="Додати до кошика" />
+              </div>
+              <div onClick={() => {
+                  if (!state.userInfo) {
+                    CustomNotify('Для цієї операції треба бути залогованим', 'warning')
+                    return
+                  }
+                  dispatch({ type: 'FAVORITES_ADD_ITEM', payload: data})
+                  if (favoritesItems.find((favorite: Product) => {
+                    return data.slug === favorite.slug
+                  })) { 
+                    CustomNotify('Продукт вже є в улюбленних', 'warning')
+                  } else {
+                    CustomNotify('Продукт успішно додано до улюбленних', 'success', undefined, '/profile')
+                  }
+                }}>
+                <TransparentButton text="Додати до улюблених" typeBtn="active" />
+              </div>
+            </>
+            }
           </li>
         </ul>
       </div>

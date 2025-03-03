@@ -15,13 +15,11 @@ export const changeSelection = ({
     event.currentTarget.parentElement?.parentElement?.className === 'valutes'
       ? 'valutes'
       : 'languages'
-  console.log(type)
   if (currentValue === selections[type].current) return
 
   const modifiedList = selections[type].list.map((el) =>
     el === currentValue ? selections[type].current : el
   )
-  console.log(modifiedList)
   setSelections({
     ...selections,
     [type]: {

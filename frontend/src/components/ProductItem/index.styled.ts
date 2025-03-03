@@ -48,10 +48,7 @@ export const ProductItemContainer = styled.div`
         text-decoration-color: var(--main-color);
         transition: 200ms ease;
       }
-      &:hover ~ .price {
-        color: var(--main-color);
-        transition: 200ms ease;
-      }
+  
     }
     .rating {
       display: flex;

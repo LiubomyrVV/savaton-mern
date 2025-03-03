@@ -11,9 +11,6 @@ function App() {
   const { preferences: { language }} = state 
   useEffect(() => {
     i18n.changeLanguage(languages[language as keyof typeof languages])
-    return () => {
-      console.log('Cleanup if needed');
-    };
   }, [])
   return (
     <>

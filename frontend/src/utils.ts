@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
 import { ApiError } from './types/ApiError'
 import { CartItem } from './types/Cart'
 import { Product } from './types/Product'
-import { Store } from './store'
+
 export const getError = (error: ApiError) => {
   return error.response && error.response.data.message
     ? error.response.data.message
@@ -28,9 +27,6 @@ export const convertProductToCartItem = (product: Product): CartItem => {
 
   return cartItem
 }
-
-
-
 
 
 interface CurrencyConverterProps {

@@ -8,8 +8,8 @@ const ProductPage = () => {
   const { data, isLoading, error } = useGetProductsQuery()
 
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(data || [])
+  const [typeFilter, setTypeFilter] = useState<string | null>(null)
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null)
-  const [brandFilter, setBrandFilter] = useState<string | null>(null)
   const [priceFilter, setPriceFilter] = useState<{ min: number; max: number }>({ min: 0, max: 10000 })
 
   useEffect(() => {
@@ -18,13 +18,13 @@ const ProductPage = () => {
       let filtered = data
 
       // Filter by category
-      if (categoryFilter) {
-        filtered = filtered.filter((product) => product.category === categoryFilter)
+      if (typeFilter) {
+        filtered = filtered.filter((product) => product.type === typeFilter)
       }
 
       // Filter by brand
-      if (brandFilter) {
-        filtered = filtered.filter((product) => product.brand === brandFilter)
+      if (categoryFilter) {
+        filtered = filtered.filter((product) => product.category === categoryFilter)
       }
 
       // Filter by price range
@@ -32,7 +32,7 @@ const ProductPage = () => {
 
       setFilteredProducts(filtered)
     }
-  }, [categoryFilter, brandFilter, priceFilter, data])
+  }, [typeFilter, categoryFilter, priceFilter, data])
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error loading products</div>
@@ -40,18 +40,75 @@ const ProductPage = () => {
   return (
     <ProductPageSection>
       <FilterAside>
-        <FilterHeader>Filters</FilterHeader>
+        <FilterHeader>Types</FilterHeader>
 
         {/* Category Filter */}
-        <FilterOption onClick={() => setCategoryFilter(categoryFilter === 'Electronics' ? null : 'Electronics')}>Electronics</FilterOption>
-        <FilterOption onClick={() => setCategoryFilter('Clothing')}>Clothing</FilterOption>
-        <FilterOption onClick={() => setCategoryFilter('Accessories')}>Accessories</FilterOption>
+        <FilterOption
+  style={{ backgroundColor: typeFilter === 'Electronics' ? '#ddd' : '#fff' }}
+  onClick={() => setTypeFilter(typeFilter === 'Electronics' ? null : 'Electronics')}
+>
+  Electronics
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: typeFilter === 'Gaming Laptop' ? '#ddd' : '#fff' }}
+  onClick={() => setTypeFilter(typeFilter === 'Gaming Laptop' ? null : 'Gaming Laptop')}
+>
+  Gaming Laptop
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: typeFilter === 'Business Laptop' ? '#ddd' : '#fff' }}
+  onClick={() => setTypeFilter(typeFilter === 'Business Laptop' ? null : 'Business Laptop')}
+>
+  Business Laptop
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: typeFilter === 'Sports & Action' ? '#ddd' : '#fff' }}
+  onClick={() => setTypeFilter(typeFilter === 'Sports & Action' ? null : 'Sports & Action')}
+>
+  Sports & Action
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: typeFilter === 'Gaming Accessories' ? '#ddd' : '#fff' }}
+  onClick={() => setTypeFilter(typeFilter === 'Gaming Accessories' ? null : 'Gaming Accessories')}
+>
+  Gaming Accessories
+</FilterOption>
 
-        {/* Brand Filter */}
-        <FilterHeader>Brands</FilterHeader>
-        <FilterOption onClick={() => setBrandFilter('Brand A')}>Brand A</FilterOption>
-        <FilterOption onClick={() => setBrandFilter('Brand B')}>Brand B</FilterOption>
-        <FilterOption onClick={() => setBrandFilter('Brand C')}>Brand C</FilterOption>
+
+   
+        <FilterHeader>Categories</FilterHeader>
+        <FilterOption
+  style={{ backgroundColor: categoryFilter === 'Laptop' ? '#ddd' : '#fff' }}
+  onClick={() => setCategoryFilter(categoryFilter === 'Laptop' ? null : 'Laptop')}
+>
+  Laptop
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: categoryFilter === 'Headphones' ? '#ddd' : '#fff' }}
+  onClick={() => setCategoryFilter(categoryFilter === 'Headphones' ? null : 'Headphones')}
+>
+  Headphones
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: categoryFilter === 'Smartphone' ? '#ddd' : '#fff' }}
+  onClick={() => setCategoryFilter(categoryFilter === 'Smartphone' ? null : 'Smartphone')}
+>
+  Smartphone
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: categoryFilter === 'Smartwatch' ? '#ddd' : '#fff' }}
+  onClick={() => setCategoryFilter(categoryFilter === 'Smartwatch' ? null : 'Smartwatch')}
+>
+  SmartWatch
+</FilterOption>
+<FilterOption
+  style={{ backgroundColor: categoryFilter === 'Action Camera' ? '#ddd' : '#fff' }}
+  onClick={() => setCategoryFilter(categoryFilter === 'Action Camera' ? null : 'Action Camera')}
+>
+  Action Camera
+</FilterOption>
+
+        
 
         {/* Price Filter */}
         <FilterHeader>Price</FilterHeader>
