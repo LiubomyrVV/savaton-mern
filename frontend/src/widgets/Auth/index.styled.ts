@@ -19,7 +19,37 @@ export const Overlay = styled.div`
   padding: 10px; /* Padding for smaller screens */
   z-index: 1000;
 `;
+export const LoginButton = styled.button`
 
+  background: none;
+
+  color: #fff;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  margin-top: 15px;
+
+  text-decoration: underline;
+
+
+  &:hover {
+
+    color: lightgray;
+
+  }
+
+
+  @media (max-width: 480px) {
+
+    font-size: 14px;
+
+  }
+
+`;
 export const Modal = styled.div`
   background: rgba(255, 255, 255, 0.1);
   padding: 30px;
@@ -56,7 +86,7 @@ export const Input = styled.input`
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 16px;
-  width: 100%;
+  width: 94%; 
 
   &::placeholder {
     color: #ddd;

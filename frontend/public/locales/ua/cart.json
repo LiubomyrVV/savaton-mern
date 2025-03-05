@@ -1,6 +1,9 @@
 {
-  "Product List": "Список товарів",
+  "Product List": "Список продуктів",
   "Quantity": "Кількість",
-  "pcs": "штук",
-  "Remove": "Видалити"
+  "pcs": "шт.",
+  "Remove": "Видалити",
+  "No products in the cart": "В кошику немає товарів",
+  "Go to the products page": "Перейти на сторінку товарів",
+  "Proceed to Checkout": "Перейти до покупки"
 }

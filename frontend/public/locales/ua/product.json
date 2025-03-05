@@ -1,0 +1,18 @@
+{
+  "Loading...": "Завантаження...",
+  "Error loading products": "Помилка завантаження продуктів",
+  "Types": "Типи",
+  "Categories": "Категорії",
+  "Price": "Ціна",
+  "Price: ${min} - ${max}": "Ціна: ${min} - ${max}",
+  "Electronics": "Електроніка",
+  "Gaming Laptop": "Ігровий ноутбук",
+  "Business Laptop": "Бізнес-ноутбук",
+  "Sports & Action": "Спорт і екшн",
+  "Gaming Accessories": "Ігрові аксесуари",
+  "Laptop": "Ноутбук",
+  "Headphones": "Навушники",
+  "Smartphone": "Смартфон",
+  "Smartwatch": "Смарт-годинник",
+  "Action Camera": "Екшн-камера"
+}

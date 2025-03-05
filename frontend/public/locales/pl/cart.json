@@ -2,5 +2,8 @@
   "Product List": "Lista produktów",
   "Quantity": "Ilość",
   "pcs": "szt.",
-  "Remove": "Usuń"
+  "Remove": "Usuń",
+  "No products in the cart": "Brak produktów w koszyku",
+  "Go to the products page": "Przejdź do strony produktów",
+  "Proceed to Checkout": "Przejdź do kasy"
 }

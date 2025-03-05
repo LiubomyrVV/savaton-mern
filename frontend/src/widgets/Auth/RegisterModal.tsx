@@ -10,9 +10,10 @@ import {
   Button,
   CloseButton,
 } from "./index.styled";
-import apiClient from "../../apiClient";
+
 import { CustomNotify } from "../../components/common/CustomNotify";
 import { Store } from "../../store";
+import { signup } from "../../services/signup";
 
 
 interface FormData {
@@ -21,7 +22,7 @@ interface FormData {
   password: string;
 }
 
-const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+const RegisterModal: React.FC<{ registerModal: (arg: boolean) => void, loginModal: (arg: boolean) => void  }> = ({ registerModal, loginModal }) => {
   const {
     register,
     handleSubmit,
@@ -35,7 +36,7 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       }
     try {
       // Send the user data to the backend using axios
-      const response = await apiClient.post("api/users/signup", data);
+      const response = await signup(data)
 
       if (response.status === 200) {
         CustomNotify('User registered successfully!', 'success')
@@ -46,7 +47,7 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         // Save user info to localstorage
         state.userInfo = response.data
         localStorage.setItem('userInfo', JSON.stringify(response.data))
-        onClose(); // Close modal after successful submission
+        registerModal(false); 
       } else {
         CustomNotify('Error registering user', 'warning')
       }
@@ -88,7 +89,11 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           {errors.password && <Error>{errors.password.message}</Error>}
 
           <Button type="submit">Sign Up</Button>
-          <CloseButton onClick={onClose}>×</CloseButton>
+          <div onClick={() => {
+            registerModal(false)
+            loginModal(true)
+            }} style={{color: '#fff', textAlign:'right', cursor: 'pointer'}}>Sign in</div>
+          <CloseButton onClick={() => registerModal(false)}>×</CloseButton>
         </Form>
       </Modal>
     </Overlay>

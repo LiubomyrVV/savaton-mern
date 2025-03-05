@@ -1,6 +1,17 @@
 {
-    "Product List": "Product List",
-    "Quantity": "Quantity",
-    "pcs": "pcs",
-    "Remove": "Remove"
-  }
+
+  "Product List": "Product List",
+
+  "Quantity": "Quantity",
+
+  "pcs": "pcs",
+
+  "Remove": "Remove",
+
+  "No products in the cart": "No products in the cart",
+
+  "Go to the products page": "Go to the products page",
+
+  "Proceed to Checkout": "Proceed to Checkout"
+
+}

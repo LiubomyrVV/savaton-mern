@@ -17,6 +17,9 @@ export class User {
   public verificationToken!: string
   @prop({ required: true, default: false })
   public isVerified!: boolean
+
+  @prop({ required: true})
+  public info!: string
 }
 
 export const UserModel = getModelForClass(User)

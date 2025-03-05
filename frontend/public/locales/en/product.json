@@ -1,0 +1,18 @@
+{
+    "Loading...": "Loading...",
+    "Error loading products": "Error loading products",
+    "Types": "Types",
+    "Categories": "Categories",
+    "Price": "Price",
+    "Price: ${min} - ${max}": "Price: ${min} - ${max}",
+    "Electronics": "Electronics",
+    "Gaming Laptop": "Gaming Laptop",
+    "Business Laptop": "Business Laptop",
+    "Sports & Action": "Sports & Action",
+    "Gaming Accessories": "Gaming Accessories",
+    "Laptop": "Laptop",
+    "Headphones": "Headphones",
+    "Smartphone": "Smartphone",
+    "Smartwatch": "Smartwatch",
+    "Action Camera": "Action Camera"
+  }

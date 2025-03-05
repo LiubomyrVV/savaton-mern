@@ -1,0 +1,18 @@
+{
+  "Loading...": "Ładowanie...",
+  "Error loading products": "Błąd podczas ładowania produktów",
+  "Types": "Typy",
+  "Categories": "Kategorie",
+  "Price": "Cena",
+  "Price: ${min} - ${max}": "Cena: ${min} - ${max}",
+  "Electronics": "Elektronika",
+  "Gaming Laptop": "Laptop do gier",
+  "Business Laptop": "Laptop biznesowy",
+  "Sports & Action": "Sport i akcja",
+  "Gaming Accessories": "Akcesoria do gier",
+  "Laptop": "Laptop",
+  "Headphones": "Słuchawki",
+  "Smartphone": "Smartfon",
+  "Smartwatch": "Smartwatch",
+  "Action Camera": "Kamera akcji"
+}
