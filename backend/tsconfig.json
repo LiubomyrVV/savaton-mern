@@ -1,14 +1,25 @@
 {
+
   "compilerOptions": {
-    "target": "es2015",
-    "outDir": "./build",
-    "strict": true,
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "allowImportingTsExtensions": false,
-    "noEmit": false,
-    "skipLibCheck": true
-  }
+
+      "target": "es6",
+
+      "module": "commonjs",
+
+      "strict": true,
+
+      "esModuleInterop": true,
+
+      "skipLibCheck": true,
+
+      "forceConsistentCasingInFileNames": true,
+
+      "outDir": "./build"
+
+  },
+
+  "include": ["src/**/*"],
+
+  "exclude": ["node_modules", "build"]
+
 }
