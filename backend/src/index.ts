@@ -34,6 +34,10 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/', (req, res) => {
+  res.send('Welcome');
+});
+
 app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)
 // app.use('/api/orders', orderRouter)
