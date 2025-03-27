@@ -1,0 +1,17 @@
+{
+  "Profile Page": "Сторінка профілю",
+  "Personal Cabinet": "Особистий кабінет",
+  "Name": "Ім'я",
+  "Email": "Електронна пошта",
+  "Email not verified!": "Електронна пошта не підтверджена!",
+  "Click to check your email": "Натисніть, щоб перевірити свою електронну пошту",
+  "User  is signed out successfully": "Користувач успішно вийшов",
+  "Sign Out": "Вийти",
+  "Favorite Products": "Улюблені товари",
+  "You have no favorite products": "У вас немає улюблених товарів",
+  "Go to products page": "Перейти на сторінку товарів",
+  "Email is already verified": "Електронна пошта вже підтверджена",
+  "Email is not verified, check your mailbox": "Електронна пошта не підтверджена, перевірте свою поштову скриньку",
+  "Error": "Помилка",
+  "User  information is not available.": "Інформація про користувача недоступна."
+}

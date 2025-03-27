@@ -1,6 +1,7 @@
 import React, {
   MouseEvent,
   useCallback,
+  useContext,
   useEffect,
   useRef,
   useState,
@@ -17,10 +18,12 @@ import {
   States,
 } from './utils'
 import { Dropdown } from './ui/Dropdown'
+import { Store } from '../../../store'
 
 const dropdownList = ['valutes', 'languages']
 
 const HeaderActions = () => {
+  const { dispatch } = useContext(Store);
   const [isActive, setIsActive] = useState<States>(defaultStates)
   const [selections, setSelections] = useState<Selections>(defaultSelections)
   const refs = {
@@ -37,9 +40,9 @@ const HeaderActions = () => {
 
   const changeSelectionHandler = useCallback(
     (event: MouseEvent<HTMLLIElement>) => {
-      changeSelection({ event, selections, setSelections })
+      changeSelection({ event, selections, setSelections, dispatch })
     },
-    [selections, setSelections]
+    [selections, setSelections, dispatch]
   )
 
   const handleClickOutside = useCallback((event: Event) => {
@@ -64,8 +67,9 @@ const HeaderActions = () => {
 
   return (
     <HeaderActionsContainer>
-      {dropdownList.map((name: string) =>
-        Dropdown(
+      {dropdownList.map((name: string, idx: number) =>
+        <div key={idx}>
+          {Dropdown(
           name,
           selections[name as keyof Selections].list,
           isActive[generateDynamicKey(name) as keyof States],
@@ -73,7 +77,8 @@ const HeaderActions = () => {
           selections[name as keyof Selections].current,
           openMenuHandler,
           changeSelectionHandler
-        )
+        )}
+        </div>
       )}
     </HeaderActionsContainer>
   )

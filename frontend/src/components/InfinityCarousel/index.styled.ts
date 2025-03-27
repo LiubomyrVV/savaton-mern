@@ -26,7 +26,7 @@ export const InfinityCarouselContainer = styled.section`
     filter: blur(4px);
     }
   }
-  ul {
+  .infinity-carousel__list {
     display: flex;
     gap: 40px;
 

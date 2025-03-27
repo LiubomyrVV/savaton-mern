@@ -12,9 +12,13 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/nodemailer": "^6.4.17",
     "concurrently": "^8.2.2"
   },
   "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0",
     "swiper": "^11.1.4"
   }
 }

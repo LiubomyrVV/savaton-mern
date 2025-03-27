@@ -1,0 +1,32 @@
+{
+  "Responsive": {
+    "title": "Responsywny",
+    "subtitle": "Obsługa klienta dostępna 24/7",
+    "icon": "bi-headset"
+  },
+  "Secure": {
+    "title": "Bezpieczny",
+    "subtitle": "Certyfikowany rynek od 2017 roku",
+    "icon": "bi-shield-check"
+  },
+  "Shipping": {
+    "title": "Wysyłka",
+    "subtitle": "Darmowa, szybka i niezawodna wysyłka na całym świecie",
+    "icon": "bi-truck"
+  },
+  "Transparent": {
+    "title": "Przejrzysty",
+    "subtitle": "Prosta polityka zwrotów",
+    "icon": "bi-box-seam"
+  },
+  "Special Offers": {
+    "title": "Specjalne oferty",
+    "subtitle": "Ekskluzywne oferty i promocje.",
+    "icon": "bi-gift"
+  },
+  "Customer Satisfaction": {
+    "title": "Satysfakcja klienta",
+    "subtitle": "Zapewnienie wysokiej satysfakcji klienta.",
+    "icon": "bi-star"
+  }
+}

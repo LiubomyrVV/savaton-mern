@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { CustomNotify as notify } from '../components/common/CustomNotify'
 
-export type NotificationContextType = {
+export interface NotificationContextType {
   notify: (
     message: string,
     type: 'error' | 'success' | 'warning' | 'info'
@@ -15,7 +15,7 @@ export const NotificationContext = createContext<
   NotificationContextType | undefined
 >(undefined)
 
-export const NotificationProvider: React.FC<React.PropsWithChildren> = ({
+const NotificationProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   return (
@@ -25,3 +25,4 @@ export const NotificationProvider: React.FC<React.PropsWithChildren> = ({
     </NotificationContext.Provider>
   )
 }
+export default NotificationProvider

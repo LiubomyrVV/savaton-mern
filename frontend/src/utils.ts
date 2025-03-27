@@ -27,3 +27,23 @@ export const convertProductToCartItem = (product: Product): CartItem => {
 
   return cartItem
 }
+
+
+interface CurrencyConverterProps {
+  amount: number
+  from: string
+  to: string
+}
+
+export const convertCurrency = async ({ amount, from, to }: CurrencyConverterProps): Promise<number | null> => {
+  if (from === to) return amount
+
+  try {
+    const response = await fetch(`https://api.frankfurter.app/latest?from=${from}&to=${to}`)
+    const data = await response.json()
+    return amount * data.rates[to]
+  } catch (error) {
+    console.error('Error fetching exchange rate:', error)
+    return null
+  }
+}

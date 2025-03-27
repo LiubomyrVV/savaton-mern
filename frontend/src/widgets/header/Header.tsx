@@ -1,14 +1,32 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { HeaderContainer } from './index.styled'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import HeaderActions from './actions/HeaderActions'
 import { useWindowResize } from '../../hooks/useWindowResize'
 import { ROUTES } from '../../router'
+import RegisterModal from '../Auth/RegisterModal'
+import { useContext, useState } from 'react'
+import { Store } from '../../store'
+import SignInModal from '../Auth/SignInModal'
+import { useTranslation } from 'react-i18next'
+
 
 const Header = () => {
   const { width } = useWindowResize()
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { t } = useTranslation('header'); 
+
+  
+  const nav = useNavigate()
+  const { state } = useContext(Store)
+  const {
+    userInfo
+  } = state
   return (
     <HeaderContainer id={'header'}>
+       {isRegisterOpen ? <RegisterModal registerModal={(arg: boolean) => setIsRegisterOpen(arg)} loginModal={(arg: boolean) => setIsLoginOpen(arg)}/> : null}
+       {isLoginOpen ? <SignInModal registerModal={(arg: boolean) => setIsRegisterOpen(arg)} loginModal={(arg: boolean) => setIsLoginOpen(arg)}/> : null}
       <div
         className="upper-part__underline"
         style={{ borderBottom: '2px solid var(--main-border)' }}
@@ -52,19 +70,26 @@ const Header = () => {
               <i className="bi bi-bag"></i>
             </figure>
             <div>
-              <span>Cart</span>
-              <span className="summary">150.00$</span>
+              <span>{t("Cart")}</span>
+              <span className="summary">{t("Storage")}</span>
             </div>
           </Link>
-          <Link to={ROUTES.PROFILE} className="user">
+          <div style={{cursor: 'pointer'}} onClick={() => {
+
+            if (userInfo) { 
+              nav('/profile')
+            } else {
+              setIsRegisterOpen(true)
+            }
+          }} className="user">
             <figure>
               <i className="bi bi-person"></i>
             </figure>
             <div>
-              <span>User</span>
-              <span>Account</span>
+              <span>{t("User")}</span>
+              <span>{t("Account")}</span>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
       <div

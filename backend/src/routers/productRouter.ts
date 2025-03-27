@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler'
 import { ProductModel } from '../models/productModel'
 
 export const productRouter = express.Router()
-// /api/prodcuts
+// /api/prodгсts
 productRouter.get(
   '/',
   asyncHandler(async (req, res) => {
@@ -16,6 +16,14 @@ productRouter.get(
   '/categories',
   asyncHandler(async (req: Request, res: Response) => {
     const categories = await ProductModel.find().distinct('category')
+    res.json(categories)
+  })
+)
+
+productRouter.get(
+  '/brands',
+  asyncHandler(async (req: Request, res: Response) => {
+    const categories = await ProductModel.find().distinct('brands')
     res.json(categories)
   })
 )

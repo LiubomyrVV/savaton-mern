@@ -12,6 +12,7 @@ export interface Product {
   price: number
   discount: number
   quantity: number
+  cartQuantity: number
   rating: number
   numReviews: number
 }

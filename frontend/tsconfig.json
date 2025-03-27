@@ -1,27 +1,20 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "target": "ESNext", // Modern JavaScript target
+    "module": "ESNext", // Native ES module support
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Type definitions for the DOM and modern JavaScript
+    "strict": true, // Enables all strict type-checking options
+    "moduleResolution": "Node", // Node.js module resolution strategy
+    "esModuleInterop": true, // Enables interoperability between CommonJS and ES modules
+    "allowSyntheticDefaultImports": true, // Allows default imports for modules without a default export
+    "forceConsistentCasingInFileNames": true, // Enforces consistent import casing
+    "resolveJsonModule": true, // Enables importing JSON files
+    "isolatedModules": true, // Treats each file as a separate module
+    "jsx": "react-jsx", // Uses the new React JSX runtime
   },
-  "include": [
-    "src",
-    "src/widgets/header/actions/ui/ui.tsxerDropdown.tsx",
-    "src/widgets/header/actions/ui/Dropdown.tsx",
-    "src/contexts/NotificationContext/.tsx"
-  ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"], // Includes all files in the `src` directory
+  "references": [{ "path": "./tsconfig.node.json" }] // References Node-specific configurations
 }
