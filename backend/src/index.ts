@@ -11,7 +11,7 @@ dotenv.config()
 const MONGODB_URI =
   process.env.MONGODB_URI ||
   'mongodb+srv://savatonuser:ztXJ0GAUqhoe1MKHN@savaton.txz2hhj.mongodb.net/savatondb?retryWrites=true&w=majority&appName=Savaton'
-const INDEXFRONTEND = process.env.INDEXFRONTEND ||  'http://localhost:5173'
+const INDEXFRONTEND = process.env.NODE_ENV === 'development' ? 'http://localhost:5173/' : 'savaton-mern-72vfe3qt4-liubomyr-vernyks-projects.vercel.app'
 
 mongoose.set('strictQuery', true)
 mongoose
