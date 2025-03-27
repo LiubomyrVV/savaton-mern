@@ -119,7 +119,7 @@ const ProductPage = () => {
           onChange={(e) => setPriceFilter({ ...priceFilter, max: Number(e.target.value) })}
         />
         <div>
-          <span>{t('Price: ${min} - ${max}', { min: priceFilter.min, max: priceFilter.max })}</span>
+          <span>{`Price: ${priceFilter.min} - ${priceFilter.max}`}</span>
         </div>
       </FilterAside>
 
