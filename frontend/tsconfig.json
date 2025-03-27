@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowImportingTsExtensions": false,
     "noEmit": false,
+    "skipLibCheck": true,
     "target": "ESNext", // Modern JavaScript target
     "module": "ESNext", // Native ES module support
     "lib": ["DOM", "DOM.Iterable", "ESNext"], // Type definitions for the DOM and modern JavaScript
@@ -13,7 +14,6 @@
     "resolveJsonModule": true, // Enables importing JSON files
     "isolatedModules": true, // Treats each file as a separate module
     "jsx": "react-jsx", // Uses the new React JSX runtime
-    "skipLibCheck": true,
   },
   "include": ["src"], // Includes all files in the `src` directory
   "references": [{ "path": "./tsconfig.node.json" }] // References Node-specific configurations

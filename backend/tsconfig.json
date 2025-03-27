@@ -6,6 +6,9 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "skipLibCheck": true,
   }
 }

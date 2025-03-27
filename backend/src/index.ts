@@ -11,6 +11,7 @@ dotenv.config()
 const MONGODB_URI =
   process.env.MONGODB_URI ||
   'mongodb+srv://savatonuser:ztXJ0GAUqhoe1MKHN@savaton.txz2hhj.mongodb.net/savatondb?retryWrites=true&w=majority&appName=Savaton'
+const INDEXFRONTEND = process.env.INDEXFRONTEND ||  'http://localhost:5173'
 
 mongoose.set('strictQuery', true)
 mongoose
@@ -26,7 +27,7 @@ const app = express()
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:5173'],
+    origin: [INDEXFRONTEND],
   })
 )
 
